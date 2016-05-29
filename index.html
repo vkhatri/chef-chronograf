@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-dark.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <title>Chef Chronograf by vkhatri</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>Chef Chronograf</h1>
+        <h2>Cookbook to Manage InfluxDB Chronograf</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/vkhatri/chef-chronograf/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/vkhatri/chef-chronograf/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/vkhatri/chef-chronograf" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a id="chronograf-cookbook" class="anchor" href="#chronograf-cookbook" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chronograf Cookbook</h1>
+
+<p><a href="https://github.com/vkhatri/chef-chronograf"><img src="http://img.shields.io/badge/cookbook-v0.0.1-green.svg" alt="Cookbook"></a> <a href="https://travis-ci.org/vkhatri/chef-chronograf"><img src="https://travis-ci.org/vkhatri/chef-chronograf.svg?branch=master" alt="Build Status"></a></p>
+
+<p>This is a <a href="https://www.chef.io/">Chef</a> cookbook to manage <a href="https://docs.influxdata.com/chronograf">InfluxDB</a>.</p>
+
+<blockquote>
+<blockquote>
+<p>For Production environment, always prefer the <a href="https://supermarket.chef.io/cookbooks/chronograf">most recent release</a>.</p>
+</blockquote>
+</blockquote>
+
+<h2>
+<a id="most-recent-release" class="anchor" href="#most-recent-release" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Most Recent Release</h2>
+
+<div class="highlight highlight-source-ruby"><pre>cookbook <span class="pl-s"><span class="pl-pds">'</span>chronograf<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>~&gt; 0.0.1<span class="pl-pds">'</span></span></pre></div>
+
+<h2>
+<a id="from-git" class="anchor" href="#from-git" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>From Git</h2>
+
+<div class="highlight highlight-source-ruby"><pre>cookbook <span class="pl-s"><span class="pl-pds">'</span>chronograf<span class="pl-pds">'</span></span>, <span class="pl-c1">github:</span> <span class="pl-s"><span class="pl-pds">'</span>vkhatri/chef-chronograf<span class="pl-pds">'</span></span>,  <span class="pl-c1">tag:</span> <span class="pl-s"><span class="pl-pds">"</span>v0.0.1<span class="pl-pds">"</span></span></pre></div>
+
+<h2>
+<a id="repository" class="anchor" href="#repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repository</h2>
+
+<pre><code>https://github.com/vkhatri/chef-chronograf
+</code></pre>
+
+<h2>
+<a id="supported-os" class="anchor" href="#supported-os" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Supported OS</h2>
+
+<p>This cookbook was tested on Amazon &amp; Ubuntu Linux and expected to work on other RHEL platforms.</p>
+
+<h2>
+<a id="cookbook-dependency" class="anchor" href="#cookbook-dependency" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Cookbook Dependency</h2>
+
+<p>None</p>
+
+<h2>
+<a id="recipes" class="anchor" href="#recipes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Recipes</h2>
+
+<ul>
+<li><p><code>chronograf::default</code> - default recipe (use it for run_list)</p></li>
+<li><p><code>chronograf::install</code> - install chronograf </p></li>
+<li><p><code>chronograf::config</code> - configure chronograf</p></li>
+</ul>
+
+<h2>
+<a id="core-attributes" class="anchor" href="#core-attributes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Core Attributes</h2>
+
+<ul>
+<li><p><code>default['chronograf']['version']</code> (default: <code>nil</code>): chronograf version, default install latest</p></li>
+<li><p><code>default['chronograf']['conf_dir']</code> (default: <code>/opt/chronograf</code>): chronograf toml configuration file directory</p></li>
+<li><p><code>default['chronograf']['conf_file']</code> (default: <code>/opt/chronograf/config.toml</code>): chronograf configuration file</p></li>
+<li><p><code>default['chronograf']['notify_restart']</code> (default: <code>true</code>): whether to restart chronograf service on configuration file change</p></li>
+<li><p><code>default['chronograf']['disable_service']</code> (default: <code>false</code>): whether to stop and disable chronograf service</p></li>
+<li><p><code>default['chronograf']['bind_host']</code> (default: <code>node['ipaddress']</code>): chronograf bind host</p></li>
+<li><p><code>default['chronograf']['bind_port']</code> (default: <code>10000</code>): chronograf bind port</p></li>
+<li><p><code>default['chronograf']['local_database_dir']</code> (default: <code>10000</code>): chronograf bind port</p></li>
+</ul>
+
+<h2>
+<a id="configuration-file-configtoml-attributes" class="anchor" href="#configuration-file-configtoml-attributes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Configuration File config.toml Attributes</h2>
+
+<ul>
+<li><p><code>default['chronograf']['config']['QueryResponseBytesLimit']</code> (default: <code>2_500_000</code>): chronograf config parameter</p></li>
+<li><p><code>default['chronograf']['config']['Bind']</code> (default: <code>calculated</code>): chronograf config parameter, derived from <code>#{node['chronograf']['bind_host']}:#{node['chronograf']['bind_port']}</code></p></li>
+<li><p><code>default['chronograf']['config']['LocalDatabase']</code> (default: <code>calculated</code>): chronograf config parameter, derived from <code>#{node['chronograf']['local_database_dir']}/chronograf.db</code></p></li>
+</ul>
+
+<h2>
+<a id="chronograf-yumapt-repository-attributes" class="anchor" href="#chronograf-yumapt-repository-attributes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>chronograf YUM/APT Repository Attributes</h2>
+
+<ul>
+<li><p><code>default['chronograf']['yum']['description']</code> (default: ``): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['yum']['gpgcheck']</code> (default: <code>true</code>): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['yum']['enabled']</code> (default: <code>true</code>): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['yum']['baseurl']</code> (default: <code>calculated</code>): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['yum']['gpgkey']</code> (default: <code>https://repos.influxdata.com/influxdb.key</code>): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['yum']['action']</code> (default: <code>:create</code>): chronograf yum reporitory attribute</p></li>
+<li><p><code>default['chronograf']['apt']['description']</code> (default: ``): chronograf apt reporitory attribute</p></li>
+<li><p><code>default['chronograf']['apt']['components']</code> (default: <code>['stable']</code>): chronograf apt reporitory attribute</p></li>
+<li><p><code>default['chronograf']['apt']['uri']</code> (default: <code>https//repos.influxdata.com/debian</code>): chronograf apt reporitory attribute</p></li>
+<li><p><code>default['chronograf']['apt']['key']</code> (default: <code>https//repos.influxdata.com/influxdb.key</code>): chronograf apt reporitory attribute</p></li>
+<li><p><code>default['chronograf']['apt']['action']</code> (default: <code>:add</code>): chronograf apt reporitory attribute</p></li>
+</ul>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
+
+<ol>
+<li>Fork the repository on Github</li>
+<li>Create a named feature branch (like <code>add_component_x</code>)</li>
+<li>Write your change</li>
+<li>Write tests for your change (if applicable)</li>
+<li>Run the tests (<code>rake &amp; rake knife</code>), ensuring they all pass</li>
+<li>Write new resource/attribute description to <code>README.md</code>
+</li>
+<li>Write description about changes to PR</li>
+<li>Submit a Pull Request using Github</li>
+</ol>
+
+<h2>
+<a id="copyright--license" class="anchor" href="#copyright--license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Copyright &amp; License</h2>
+
+<p>Authors:: Virender Khatri and <a href="https://github.com/vkhatri/chef-chronograf/graphs/contributors">Contributors</a></p>
+
+<pre>
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+</pre>
+      </section>
+    </div>
+
+    
+  </body>
+</html>
