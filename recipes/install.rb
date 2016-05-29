@@ -20,7 +20,7 @@
 case node['platform_family']
 when 'debian'
   # apt repository configuration
-  apt_repository 'beats' do
+  apt_repository 'influxdb' do
     uri node['chronograf']['apt']['uri']
     components node['chronograf']['apt']['components']
     key node['chronograf']['apt']['key']
@@ -29,7 +29,7 @@ when 'debian'
   end
 when 'rhel'
   # yum repository configuration
-  yum_repository 'beats' do
+  yum_repository 'influxdb' do
     description node['chronograf']['yum']['description']
     baseurl node['chronograf']['yum']['baseurl']
     gpgcheck node['chronograf']['yum']['gpgcheck']
