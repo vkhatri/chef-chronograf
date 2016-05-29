@@ -2,7 +2,12 @@
 
 This file is used to list changes made in each version of the chronograf cookbook.
 
-0.0.1
+0.1.1
+-----
+
+- Virender Khatri - fixed repository name
+
+0.1.0
 -----
 
 - Virender Khatri - initial commit

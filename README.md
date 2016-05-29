@@ -1,7 +1,7 @@
 chronograf Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.0.1-green.svg)](https://github.com/vkhatri/chef-chronograf) [![Build Status](https://travis-ci.org/vkhatri/chef-chronograf.svg?branch=master)](https://travis-ci.org/vkhatri/chef-chronograf)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.1-green.svg)](https://github.com/vkhatri/chef-chronograf) [![Build Status](https://travis-ci.org/vkhatri/chef-chronograf.svg?branch=master)](https://travis-ci.org/vkhatri/chef-chronograf)
 
 This is a [Chef] cookbook to manage [InfluxDB] [Chronograf].
 
@@ -12,13 +12,13 @@ This is a [Chef] cookbook to manage [InfluxDB] [Chronograf].
 ## Most Recent Release
 
 ```ruby
-cookbook 'chronograf', '~> 0.0.1'
+cookbook 'chronograf', '~> 0.1.1'
 ```
 
 ## From Git
 
 ```ruby
-cookbook 'chronograf', github: 'vkhatri/chef-chronograf',  tag: "v0.0.1"
+cookbook 'chronograf', github: 'vkhatri/chef-chronograf',  tag: "v0.1.1"
 ```
 
 ## Repository
@@ -42,7 +42,7 @@ None
 
 - `chronograf::default` - default recipe (use it for run_list)
 
-- `chronograf::install` - install chronograf 
+- `chronograf::install` - install chronograf
 
 - `chronograf::config` - configure chronograf
 
