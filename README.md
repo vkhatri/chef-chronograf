@@ -1,7 +1,10 @@
 chronograf Cookbook
 ================
 
-[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.1-green.svg)](https://github.com/vkhatri/chef-chronograf) [![Build Status](https://travis-ci.org/vkhatri/chef-chronograf.svg?branch=master)](https://travis-ci.org/vkhatri/chef-chronograf)
+[![Cookbook](http://img.shields.io/badge/cookbook-v0.1.1-green.svg)](https://github.com/vkhatri/chef-chronograf)
+
+[![wercker status](https://app.wercker.com/status/a37daddcb8247592dd78ba1085a9df07/m "wercker status")](https://app.wercker.com/project/bykey/a37daddcb8247592dd78ba1085a9df07)
+
 
 This is a [Chef] cookbook to manage [InfluxDB] [Chronograf].
 
