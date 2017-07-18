@@ -17,16 +17,20 @@
 # limitations under the License.
 #
 
+chef_gem 'toml' do
+  version node['chronograf']['toml_gem_version']
+end
+
 require 'toml'
 
 directory node['chronograf']['local_database_dir'] do
   owner node['chronograf']['user']
   group node['chronograf']['user']
-  mode 0755
+  mode 0o0755
 end
 
 file node['chronograf']['conf_file'] do
-  content TOML.dump(node['chronograf']['config'])
+  content TOML::Generator.new(node['chronograf']['conf_file']).body
   notifies :restart, 'service[chronograf]' if node['chronograf']['notify_restart'] && !node['chronograf']['disable_service']
 end
 
