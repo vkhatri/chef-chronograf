@@ -30,3 +30,5 @@ default['chronograf']['bind_host'] = node['ipaddress']
 default['chronograf']['bind_port'] = 10_000
 default['chronograf']['local_database_dir'] = '/opt/chronograf'
 default['chronograf']['config']['QueryResponseBytesLimit'] = 2_500_000
+
+default['chronograf']['toml_gem_version'] = '~> 0.1.2'
