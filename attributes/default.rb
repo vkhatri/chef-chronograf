@@ -24,7 +24,7 @@ default['chronograf']['yum']['action'] = :create
 
 default['chronograf']['apt']['uri'] = 'https://repos.influxdata.com/debian'
 default['chronograf']['apt']['description'] = 'InfluxDB Repository'
-default['chronograf']['apt']['components'] = %w(stable)
+default['chronograf']['apt']['components'] = [node['lsb']['codename'], 'stable']
 # default['chronograf']['apt']['distribution'] = ''
 default['chronograf']['apt']['action'] = :add
 default['chronograf']['apt']['key'] = 'https://repos.influxdata.com/influxdb.key'
