@@ -10,8 +10,8 @@ default['chronograf']['conf_dir'] = '/opt/chronograf'
 default['chronograf']['conf_file'] = ::File.join(node['chronograf']['conf_dir'], 'config.toml')
 
 default['chronograf']['yum']['baseurl'] = value_for_platform(
-  %w(amazon) => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' },
-  %w(centos redhat fedora) => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
+  %w[amazon] => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' },
+  %w[centos redhat fedora] => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
 )
 
 default['chronograf']['include_repository'] = true

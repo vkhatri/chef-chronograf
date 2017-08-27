@@ -22,7 +22,7 @@ require 'toml'
 directory node['chronograf']['local_database_dir'] do
   owner node['chronograf']['user']
   group node['chronograf']['user']
-  mode 0755
+  mode 0o755
 end
 
 file node['chronograf']['conf_file'] do
@@ -37,7 +37,7 @@ ruby_block 'delay chronograf service start' do
   not_if { node['chronograf']['disable_service'] }
 end
 
-service_action = node['chronograf']['disable_service'] ? [:disable, :stop] : [:enable, :nothing]
+service_action = node['chronograf']['disable_service'] ? %i[disable stop] : %i[enable nothing]
 
 service 'chronograf' do
   supports :status => true, :restart => true
