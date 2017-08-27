@@ -1,4 +1,7 @@
-default['chronograf']['version'] = nil
+default['chronograf']['version'] = '1.3.7.0'
+default['chronograf']['release'] = '1'
+default['chronograf']['ignore_version'] = false
+
 default['chronograf']['toml_gem_version'] = '~> 0.1.2'
 default['chronograf']['disable_service'] = false
 
@@ -14,7 +17,7 @@ default['chronograf']['yum']['baseurl'] = value_for_platform(
   %w[centos redhat fedora] => { 'default' => 'https://repos.influxdata.com/rhel/6/$basearch/stable' }
 )
 
-default['chronograf']['include_repository'] = true
+default['chronograf']['setup_repository'] = true
 
 default['chronograf']['yum']['description'] = 'InfluxDB Repository - RHEL $releasever'
 default['chronograf']['yum']['gpgcheck'] = true

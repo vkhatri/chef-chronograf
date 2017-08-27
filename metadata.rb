@@ -11,6 +11,9 @@ issues_url 'https://github.com/vkhatri/chef-chronograf/issues' if respond_to?(:i
 
 chef_version '>= 12' if respond_to?(:chef_version)
 
+depends 'apt'
+depends 'yum-plugin-versionlock', '>= 0.1.2'
+
 %w[ubuntu centos amazon redhat fedora].each do |os|
   supports os
 end

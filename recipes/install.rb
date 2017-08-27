@@ -19,25 +19,42 @@
 
 case node['platform_family']
 when 'debian'
-  # apt repository configuration
-  apt_repository 'influxdb' do
-    uri node['chronograf']['apt']['uri']
-    components node['chronograf']['apt']['components']
-    key node['chronograf']['apt']['key']
-    distribution node['chronograf']['apt']['distribution']
-    action node['chronograf']['apt']['action']
-    only_if { node['chronograf']['include_repository'] }
+  package 'apt-transport-https'
+
+  if node['chronograf']['setup_repository']
+    apt_repository 'influxdb' do
+      uri node['chronograf']['apt']['uri']
+      components node['chronograf']['apt']['components']
+      key node['chronograf']['apt']['key']
+      distribution node['chronograf']['apt']['distribution']
+      action node['chronograf']['apt']['action']
+    end
+
+    unless node['chronograf']['ignore_version'] # ~FC023
+      apt_preference 'chronograf' do
+        pin          "version #{node['chronograf']['version']}"
+        pin_priority '700'
+      end
+    end
   end
 when 'rhel'
-  # yum repository configuration
-  yum_repository 'influxdb' do
-    description node['chronograf']['yum']['description']
-    baseurl node['chronograf']['yum']['baseurl']
-    gpgcheck node['chronograf']['yum']['gpgcheck']
-    gpgkey node['chronograf']['yum']['gpgkey']
-    enabled node['chronograf']['yum']['enabled']
-    action node['chronograf']['yum']['action']
-    only_if { node['chronograf']['include_repository'] }
+  if node['chronograf']['setup_repository']
+    yum_repository 'influxdb' do
+      description node['chronograf']['yum']['description']
+      baseurl node['chronograf']['yum']['baseurl']
+      gpgcheck node['chronograf']['yum']['gpgcheck']
+      gpgkey node['chronograf']['yum']['gpgkey']
+      enabled node['chronograf']['yum']['enabled']
+      action node['chronograf']['yum']['action']
+    end
+
+    unless node['chronograf']['ignore_version'] # ~FC023
+      yum_version_lock 'chronograf' do
+        version node['chronograf']['version']
+        release node['chronograf']['release']
+        action :update
+      end
+    end
   end
 end
 

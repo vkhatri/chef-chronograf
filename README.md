@@ -53,7 +53,7 @@ None
 ## Core Attributes
 
 
-* `default['chronograf']['version']` (default: `nil`): chronograf version, default install latest
+* `default['chronograf']['version']` (default: `1.3.7.0`): chronograf version, default install latest
 
 * `default['chronograf']['toml_gem_version']` (default: `~> 0.1.2`): toml gem version
 
