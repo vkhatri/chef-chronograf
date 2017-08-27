@@ -55,6 +55,8 @@ None
 
 * `default['chronograf']['version']` (default: `nil`): chronograf version, default install latest
 
+* `default['chronograf']['toml_gem_version']` (default: `~> 0.1.2`): toml gem version
+
 * `default['chronograf']['conf_dir']` (default: `/opt/chronograf`): chronograf toml configuration file directory
 
 * `default['chronograf']['conf_file']` (default: `/opt/chronograf/config.toml`): chronograf configuration file

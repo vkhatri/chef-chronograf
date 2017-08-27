@@ -1,4 +1,5 @@
 default['chronograf']['version'] = nil
+default['chronograf']['toml_gem_version'] = '~> 0.1.2'
 default['chronograf']['disable_service'] = false
 
 default['chronograf']['user'] = 'chronograf'

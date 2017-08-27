@@ -20,14 +20,9 @@
 node.default['chronograf']['config']['Bind'] = "#{node['chronograf']['bind_host']}:#{node['chronograf']['bind_port']}"
 node.default['chronograf']['config']['LocalDatabase'] = ::File.join(node['chronograf']['local_database_dir'], 'chronograf.db')
 
-if Chef::Resource::ChefGem.method_defined?(:compile_time)
-  chef_gem 'toml' do
-    compile_time true
-  end
-else
-  chef_gem 'toml' do
-    action :nothing
-  end.run_action(:install)
+chef_gem 'toml' do
+  compile_time true
+  version node['chronograf']['toml_gem_version']
 end
 
 include_recipe 'chronograf::install'
