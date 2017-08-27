@@ -25,6 +25,6 @@ chef_gem 'toml' do
   version node['chronograf']['toml_gem_version']
 end
 
-include_recipe 'yum-plugin-versionlock::default' if node['platform_family'] == 'rhel'
+include_recipe 'yum-plugin-versionlock::default' if %w[rhel amazon].include?(node['platform_family'])
 include_recipe 'chronograf::install'
 include_recipe 'chronograf::config'
