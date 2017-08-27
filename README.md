@@ -13,13 +13,13 @@ This is a [Chef] cookbook to manage [InfluxDB] [Chronograf].
 ## Most Recent Release
 
 ```ruby
-cookbook 'chronograf', '~> 0.1.1'
+cookbook 'chronograf', '~> 0.1.2'
 ```
 
 ## From Git
 
 ```ruby
-cookbook 'chronograf', github: 'vkhatri/chef-chronograf',  tag: "v0.1.1"
+cookbook 'chronograf', github: 'vkhatri/chef-chronograf',  tag: "v0.1.2"
 ```
 
 ## Repository
